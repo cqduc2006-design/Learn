@@ -4,12 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CTQ Test Simulation</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <header>
-      <h1>Welcome to CTQ Test Simulation Project</h1>
-    </header>
+    <h1>Welcome to CTQ Test Simulation Project</h1>
 
+    <br />
+
+    <h2>Testing Site</h2>
+    Site
     <nav>
       <p>Table of content</p>
       <ul>
@@ -22,34 +25,39 @@
 
     <main>
       <section id="content">
-        <p id="Slogan">No workhard full 10</p>
+        <p class="content" id="Slogan">No workhard full 10</p>
         <a id="docln-link" href="https://docln.net" target="_blank">
-          Go read some ln instead of wasting time studying</a
-        >
-        <p id="Sui">Random precious Sui-chan</p>
+          Go read some ln instead of wasting time studying
+        </a>
+        <p class="content" id="Sui">Random precious Sui-chan</p>
         <img src="Sui.jpeg" alt="Sui-chan" width="500" />
       </section>
 
+      <br />
       <section id="table">
         <table>
           <caption>
             CTQ Test Simulation
           </caption>
+
           <thead>
             <tr>
               <th>Test</th>
               <th>Result</th>
             </tr>
           </thead>
+
           <tbody>
             <tr>
               <td>Test 1</td>
               <td>Pass</td>
             </tr>
+
             <tr>
               <td>Test 2</td>
               <td>Pass</td>
             </tr>
+
             <tr>
               <td>Test 3</td>
               <td>Pass</td>
@@ -58,21 +66,47 @@
         </table>
       </section>
 
+      <br />
+
       <section id="form">
-        <label for="ten"> Full Name </label>
-        <input id="ten" name="ten" type="text" required />
+        <form action="#" method="POST">
+          <div>
+            <label for="ten">Full Name</label>
+            <input id="ten" name="ten" type="text" required />
+          </div>
+          <br />
+          <div>
+            <label for="tuoi">Age</label>
+            <input id="tuoi" name="tuoi" type="number" />
+          </div>
+          <br />
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" />
+          </div>
+          <br />
+          <div>
+            <span>Gender:</span>
 
-        <input name="tuoi" type="number " />
-        <input name="email" type="email" />
-        <input name="gioi tinh" type="radio" value="nam" /> Male
+            <input id="gender_male" name="gioitinh" type="radio" value="nam" />
+            <label for="gender_male">Male</label>
 
-        <select name="thanhpho">
-          <option value="hn">Hanoi</option>
-        </select>
+            <input id="gender_female" name="gioitinh" type="radio" value="nu" />
+            <label for="gender_female">Female</label>
+          </div>
+          <br />
+          <div>
+            <label for="thanhpho">City</label>
+            <select id="thanhpho" name="thanhpho">
+              <option value="hn">Hanoi</option>
+              <option value="hcm">Ho Chi Minh City</option>
+            </select>
+          </div>
 
-        <textarea name="ghichu"></textarea>
+          <br />
 
-        <button type="submit">Submit</button>
+          <button type="submit">Submit</button>
+        </form>
       </section>
     </main>
     <footer>
@@ -83,5 +117,9 @@
         <li>Minh Le</li>
       </ul>
     </footer>
+    <script>
+      alert("Hello from an embedded script!");
+    </script>
+    <script src="app.js" defer></script>
   </body>
 </html>
