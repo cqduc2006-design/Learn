@@ -1,4 +1,4 @@
-alert("Hello from an external script!");
+// alert("Hello from an external script!");
 let bedroom = 3;
 
 if (bedroom < 3) {
@@ -70,13 +70,13 @@ card.style.fontSize = "50px";
 
 console.log(card);
 
-// let noti = document.createElement("div");
-// let message = document.createElement("p");
+let noti = document.createElement("div");
+let message = document.createElement("p");
 
-// message.textContent = "This is a notification";
-// noti.appendChild(message);
+message.textContent = "This is a notification";
+noti.appendChild(message);
 
-// document.body.appendChild(noti);
+document.body.appendChild(noti);
 
 let form = document.querySelector("#Submit");
 
@@ -133,3 +133,80 @@ form.addEventListener("submit", function (event) {
     }, 5000);
   }
 });
+
+//W5
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data); // parsed array of users
+  })
+  .catch(function (error) {
+    console.error("Something went wrong:", error);
+  });
+
+function simulateNetworkDelay() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Data load success");
+    }, 2000);
+  });
+}
+success;
+
+function runWithThen() {
+  console.log("Loading data (Then) ...");
+  simulateNetworkDelay()
+    .then(function (result) {
+      console.log("Then result", result);
+    })
+    .catch(function (error) {
+      console.error("Error", error);
+    });
+}
+
+async function runWithAsyncAwait() {
+  console.log("Loading data (Async/Await) ...");
+  try {
+    const result = await simulateNetworkDelay();
+    console.log("Async/Await result", result);
+  } catch (error) {
+    console.error("Error", error);
+  }
+}
+
+runWithThen();
+runWithAsyncAwait();
+
+async function fetchUsers() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const data = await response.json();
+  return data;
+}
+
+async function loadUsers() {
+  try {
+    const userData = await fetchUsers();
+    let tbody = document.querySelector("#user-table tbody");
+
+    tbody.innerHTML = "";
+
+    userData.forEach(function (user) {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${user.id}</td>
+        <td>${user.name.toUpperCase()}</td>
+        <td>${user.email.toLowerCase()}</td>
+        <td>${user.address.street + "-" + user.address.city}</td> 
+        <td>${user.phone}</td>
+      `;
+      tbody.appendChild(row);
+    });
+  } catch (error) {
+    console.error("Có lỗi xảy ra khi tải danh sách người dùng:", error);
+  }
+}
+
+loadUsers();
